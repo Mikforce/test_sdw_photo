@@ -59,7 +59,6 @@ app = Flask(__name__)
 
 # загружаем планировщик. CycleDiffusion поддерживает только стохастические планировщики.
 # загружаем конвейер
-# убедитесь, что вы вошли в систему с помощью `huggingface-cli login`
 model_id_or_path = "CompVis/stable-diffusion-v1-4"
 scheduler = DDIMScheduler.from_pretrained(model_id_or_path, subfolder="scheduler")
 pipe = CycleDiffusionPipeline.from_pretrained(model_id_or_path, scheduler=scheduler).to("cpu") # если нет cuda изменить на cpu
@@ -97,10 +96,7 @@ def upload_image():
         source_guidance_scale=source_guidance_scale,
     ).images[0]
 
-    # image.save("horse_to_elephant.png")
-    img_io = BytesIO()
-    image[0].save(img_io, format='PNG')
-    image.seek(0)
+    image.save("horse_to_elephant.png")
 
     return send_file(image, mimetype='image/png')
 
