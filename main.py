@@ -10,7 +10,7 @@ app = Flask(__name__)
 pipe_prior = KandinskyPriorPipeline.from_pretrained(
     "kandinsky-community/kandinsky-2-1-prior", torch_dtype=torch.float32
 )  #  в случае ошибки изменить на 16
-pipe_prior.to("cpu")  # если нет cuda изменить на cpu
+pipe_prior.to("cuda")  # если нет cuda изменить на cpu
 
 
 @app.route('/')
@@ -32,7 +32,7 @@ def upload_image():
     pipe = KandinskyImg2ImgPipeline.from_pretrained(
         "kandinsky-community/kandinsky-2-1", torch_dtype=torch.float32
     )  # в случае ошибки изменить на 16
-    pipe.to("cpu")  # если нет cuda изменить на cpu
+    pipe.to("cuda")  # если нет cuda изменить на cpu
 
     processed_images  = pipe(
         prompt,

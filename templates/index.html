@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Загрузить изображение</title>
+    <!-- Add Bootstrap CSS link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container text-center">
+    <h1>Выберете настройки и загрузите изображение</h1>
+    <form method="post" action="/" enctype="multipart/form-data">
+        <label for="prompt">prompt:</label><br>
+        <input type="text" id="prompt" name="prompt"><br><br>
+
+        <label for="source_prompt">source_prompt:</label><br>
+        <input type="text" id="source_prompt" name="source_prompt"><br><br>
+
+        <label for="num_inference_steps">число шагов вывода (1-100):</label><br>
+        <input type="text" id="num_inference_steps" name="num_inference_steps"><br><br>
+
+        <label for="strength">сила (0.1-1):</label><br>
+        <input type="text" id="strength" name="strength"><br><br>
+
+
+
+        <label for="eta">eta (0.1-1):</label><br>
+        <input type="text" id="eta" name="eta"><br><br>
+
+        <label for="guidance_scale">guidance_scale (2):</label><br>
+        <input type="text" id="guidance_scale" name="guidance_scale"><br><br>
+
+        <label for="source_guidance_scale">source_guidance_scale (1):</label><br>
+        <input type="text" id="source_guidance_scale" name="source_guidance_scale"><br><br>
+
+
+
+
+
+
+        <input type="file" name="file" accept="image/*">
+        <button type="submit" class="btn btn-primary">Загрузить</button>
+    </form>
+</div>
+
+<!-- Bootstrap JS script link (Optional) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
