@@ -1,54 +1,3 @@
-# import requests
-# import torch
-# from PIL import Image
-# from io import BytesIO
-#
-# from diffusers import CycleDiffusionPipeline, DDIMScheduler
-#
-#
-# # load the scheduler. CycleDiffusion only supports stochastic schedulers.
-#
-# # load the pipeline
-# # make sure you're logged in with `huggingface-cli login`
-# model_id_or_path = "CompVis/stable-diffusion-v1-4"
-# scheduler = DDIMScheduler.from_pretrained(model_id_or_path, subfolder="scheduler")
-# pipe = CycleDiffusionPipeline.from_pretrained(model_id_or_path, scheduler=scheduler).to("cpu")
-#
-# # let's download an initial image
-# url = "https://raw.githubusercontent.com/ChenWu98/cycle-diffusion/main/data/dalle2/An%20astronaut%20riding%20a%20horse.png"
-# response = requests.get(url)
-# print(response.content)
-# init_image = Image.open(BytesIO(response.content)).convert("RGB")
-# init_image = init_image.resize((512, 512))
-# init_image.save("horse.png")
-#
-# # let's specify a prompt
-# source_prompt = "An astronaut riding a horse"
-# prompt = "An astronaut riding an elephant"
-#
-# # call the pipeline
-# image = pipe(
-#     prompt=prompt,
-#     source_prompt=source_prompt,
-#     image=init_image,
-#     num_inference_steps=100,
-#     eta=0.1,
-#     strength=0.8,
-#     guidance_scale=2,
-#     source_guidance_scale=1,
-# ).images[0]
-#
-# image.save("horse_to_elephant.png")
-
-
-
-
-
-
-
-
-
-
 import requests
 from flask import Flask, render_template, request, send_file
 from PIL import Image
@@ -96,7 +45,7 @@ def upload_image():
         source_guidance_scale=source_guidance_scale,
     ).images[0]
 
-    image.save("horse_to_elephant.png")
+    image.save("rez.png")
 
     return send_file(image, mimetype='image/png')
 
