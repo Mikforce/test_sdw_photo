@@ -61,7 +61,7 @@ app = Flask(__name__)
 # загружаем конвейер
 model_id_or_path = "CompVis/stable-diffusion-v1-4"
 scheduler = DDIMScheduler.from_pretrained(model_id_or_path, subfolder="scheduler")
-pipe = CycleDiffusionPipeline.from_pretrained(model_id_or_path, scheduler=scheduler).to("cpu") # если нет cuda изменить на cpu
+pipe = CycleDiffusionPipeline.from_pretrained(model_id_or_path, scheduler=scheduler).to("cuda") # если нет cuda изменить на cpu
 
 @app.route('/')
 def upload_file():
